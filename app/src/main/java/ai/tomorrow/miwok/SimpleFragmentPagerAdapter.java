@@ -5,6 +5,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
+    private String tabTitles[] = new String[] { "Numbers", "Family", "Colors", "Phrases"}; // tab内容
+    final int PAGE_COUNT = 4;
+
     public SimpleFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
     }
@@ -24,6 +27,11 @@ public class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 4;
+        return PAGE_COUNT;
     }
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return tabTitles[position]; // 加上tab
+    }
+
 }
